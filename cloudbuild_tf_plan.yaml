@@ -30,6 +30,17 @@ steps:
   - name: 'ssh'
     path: /root/.ssh
 
+# test git auth configuration
+- name: 'gcr.io/cloud-builders/git'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    ssh -vT git@github.com
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
+
 # clone the git repository. We will push some changes to it.
 - name: 'gcr.io/cloud-builders/git'
   args:
