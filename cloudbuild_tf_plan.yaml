@@ -20,9 +20,6 @@ steps:
   args:
   - '-c'
   - |
-    cat /root/.ssh/id_rsa
-    cat /root/.ssh/config
-    cat /root/.ssh/known_hosts
     chmod 600 /root/.ssh/id_rsa
     cat <<EOF >/root/.ssh/config
     Hostname github.com
@@ -39,6 +36,9 @@ steps:
   args:
   - '-c'
   - |
+    cat /root/.ssh/id_rsa
+    cat /root/.ssh/config
+    cat /root/.ssh/known_hosts
     ssh -vT git@github.com
   volumes:
   - name: 'ssh'
