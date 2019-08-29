@@ -106,7 +106,7 @@ steps:
   - config
   - --global
   - user.name
-  - "${_GIT_USER} <${_GIT_MAIL}>"
+  - "${_GIT_USER}"
   volumes:
   - name: 'ssh'
     path: /root/.ssh
@@ -117,7 +117,7 @@ steps:
   - -C
   - /workspace/tmp-requests
   - commit
-  - --author="${_GIT_USER}"
+  - --author="${_GIT_USER} <${_GIT_MAIL}>"
   - --file=/workspace/terraform_output.txt
   volumes:
   - name: 'ssh'
