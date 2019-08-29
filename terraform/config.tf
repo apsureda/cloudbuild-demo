@@ -10,7 +10,7 @@ provider "google" {
 
 terraform {
   backend "gcs" {
-    bucket = "apszaz-tfstate"
+    bucket = "apszaz-cloudbuild-demo-rs"
     prefix = "hec/demo-pipeline"
   }
 }
