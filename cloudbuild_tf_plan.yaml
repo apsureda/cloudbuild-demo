@@ -71,19 +71,12 @@ steps:
 
 # run a terraform plan to check what changes will be made.
 - name: gcr.io/$PROJECT_ID/terraform
-  args:
-  - plan
-  - -no-color
-  - -var-file=/workspace/tmp-requests/terraform/common_params.tfvars
-  - /workspace/tmp-requests/terraform
-
-- name: gcr.io/$PROJECT_ID/terraform
   entrypoint: 'bash'
   args:
   - '-c'
   - |
     terraform plan -no-color \
-    -var-file=/workspace/tmp-requests/terraform/common_params.tfvars \
+    -var-file=/workspace/tmp-requests/terraform/params.tfvars \
     /workspace/tmp-requests/terraform > /workspace/terraform_output.txt
 
 # add the terraform config changes for commit.
