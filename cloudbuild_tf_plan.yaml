@@ -106,7 +106,7 @@ steps:
   - config
   - --global
   - user.name
-  - "${_GIT_USER}"
+  - "${_GIT_USER} <${_GIT_MAIL}>"
   volumes:
   - name: 'ssh'
     path: /root/.ssh
