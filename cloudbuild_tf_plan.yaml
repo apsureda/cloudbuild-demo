@@ -77,6 +77,7 @@ steps:
   - |
     terraform plan -no-color \
     -var-file=/workspace/tmp-requests/terraform/params.tfvars \
+    -out=/workspace/tmp-requests/tf_out.bin \
     /workspace/tmp-requests/terraform > /workspace/terraform_output.txt
 
 # add the terraform config changes for commit.
@@ -85,7 +86,7 @@ steps:
   - -C
   - /workspace/tmp-requests
   - add
-  - terraform
+  - tf_out.bin
   volumes:
   - name: 'ssh'
     path: /root/.ssh
