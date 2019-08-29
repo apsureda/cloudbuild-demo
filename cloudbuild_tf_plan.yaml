@@ -75,10 +75,21 @@ steps:
   args:
   - '-c'
   - |
-    terraform plan -no-color \
+    terraform plan -no-color -input=false \
     -var-file=/workspace/tmp-requests/terraform/params.tfvars \
-    -out=/workspace/tmp-requests/tf_out.bin \
+    -out=/workspace/tmp-requests/tf_plan.bin \
     /workspace/tmp-requests/terraform > /workspace/terraform_output.txt
+
+# encode the plan to protect any secrets that may have been included
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - kms
+  - encrypt
+  - --plaintext-file=/workspace/tmp-requests/tf_plan.bin
+  - --ciphertext-file=/workspace/tmp-requests/tf_plan.enc
+  - --location=global
+  - --keyring=cloudbuild-secrets
+  - --key=cloudbuild-key
 
 # add the terraform config changes for commit.
 - name: 'gcr.io/cloud-builders/git'
@@ -86,7 +97,7 @@ steps:
   - -C
   - /workspace/tmp-requests
   - add
-  - tf_out.bin
+  - tf_plan.enc
   volumes:
   - name: 'ssh'
     path: /root/.ssh
