@@ -21,7 +21,7 @@ steps:
 - name: gcr.io/$PROJECT_ID/terraform
   args:
   - apply
-  - -var-file=terraform/common_params.tfvars
+  - -var-file=terraform/params.tfvars
   - -auto-approve
   - -input=false
   - /workspace/tf_plan.bin
