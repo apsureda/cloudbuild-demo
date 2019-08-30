@@ -1,6 +1,5 @@
 resource "google_compute_network" "sample_network" {
   name                    = "sample-network"
-  project                 = "${var.pipeline_project}"
   auto_create_subnetworks = "false"
 }
 
