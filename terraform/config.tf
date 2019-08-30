@@ -4,8 +4,8 @@
  * agreement with Google.  
  */
 provider "google" {
-  #   credentials = "${file(var.gcp_credentials_path)}"
   version = "~> 2.5.0"
+  project = "${var.project}"
 }
 
 terraform {
