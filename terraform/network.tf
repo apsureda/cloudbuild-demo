@@ -5,7 +5,7 @@ resource "google_compute_network" "sample_network" {
 
 resource "google_compute_subnetwork" "sample_zone" {
   ip_cidr_range            = "172.20.21.0/28"
-  name                     = "sample_zone"
+  name                     = "sample-zone"
   network                  = "${google_compute_network.sample_network.name}"
   region                   = "${var.region}"
   private_ip_google_access = true
