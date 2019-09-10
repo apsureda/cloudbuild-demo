@@ -1,7 +1,5 @@
 
 
-
-
 gcloud kms encrypt --plaintext-file=id_rsa \
                    --ciphertext-file=../id_rsa.enc \
                    --location=global --keyring=cloudbuild-secrets \
