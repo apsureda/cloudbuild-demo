@@ -24,7 +24,6 @@ resource "google_compute_firewall" "IAP-to-bastion" {
 
   source_ranges = [
     "35.235.240.0/20",
-    "35.235.230.0/20",
   ]
 
   target_tags = ["bastion"]
