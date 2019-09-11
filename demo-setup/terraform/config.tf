@@ -5,7 +5,7 @@
  */
 provider "google" {
   #   credentials = "${file(var.gcp_credentials_path)}"
-  version = "~> 2.0.0"
+        version = "~> 2.5"
 }
 
 # provider "google-beta" {
@@ -13,9 +13,9 @@ provider "google" {
 #   version     = "~> 2.0.0"
 # }
 
-terraform {
-  backend "gcs" {
-    bucket = "apszaz-tfstate"
-    prefix = "hec/demo-setup"
-  }
-}
+# terraform {
+#   backend "gcs" {
+#     bucket = "apszaz-tfstate"
+#     prefix = "hec/demo-setup"
+#   }
+# }

@@ -5,10 +5,10 @@
  */
 
 gcp_credentials_path = "/path/to/the/key/file.json"
-gcs_remote_state = "apszaz-cloudbuild-demo-rs"
-pipeline_project = "apszaz-cloudbuild-demo"
+gcs_remote_state = "hablemos-en-cloud-cloudbuild-demo"
+pipeline_project = "hablemos-en-cloud"
 source_repo = "git@github.com:apsureda/cloudbuild-demo"
-git_user_email = "noreply@mycompany.com"
+git_user_email = "alpalacios@gcprocks.es"
 pipeline_project_services = [
     "storage-api.googleapis.com",
     "storage-component.googleapis.com",

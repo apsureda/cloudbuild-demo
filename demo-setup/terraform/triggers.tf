@@ -5,7 +5,7 @@ resource "google_cloudbuild_trigger" "tf_apply" {
   }
 
   project        = "${var.pipeline_project}"
-  description    = "apply changes in production"
+  description    = "Aplicar cambios en producción"
   filename       = "cloudbuild_tf_apply.yaml"
   included_files = ["tf_plan.enc"]
 
@@ -25,7 +25,7 @@ resource "google_cloudbuild_trigger" "tf_plan" {
   }
 
   project        = "${var.pipeline_project}"
-  description    = "run terraform plan, and push the output to the source repo in the request branch"
+  description    = "Crear un plan terraform, y añadirlo a la rama de la petición de cambio"
   filename       = "cloudbuild_tf_plan.yaml"
   included_files = ["terraform/*"]
 

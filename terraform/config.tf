@@ -10,7 +10,7 @@ provider "google" {
 
 terraform {
   backend "gcs" {
-    bucket = "apszaz-cloudbuild-demo-rs"
+    bucket = "hablemos-en-cloud-cloudbuild-demo"
     prefix = "hec/demo-pipeline"
   }
 }
